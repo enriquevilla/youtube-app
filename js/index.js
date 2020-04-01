@@ -29,7 +29,7 @@ async function fetchYT(q, nextPageToken) {
             fetchYT(q, "&pageToken=" + results.prevPageToken);
         });
     }
-    if (results.nextPageToken) {
+    if (results.items.length === 10) {
         let nextPage = document.createElement("button");
         nextPage.innerHTML = "Next page";
         document.querySelector(".search-results").appendChild(nextPage);
